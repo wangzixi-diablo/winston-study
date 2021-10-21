@@ -14,18 +14,26 @@ const logger = winston.createLogger({
   ]
 });
 
+
 if (process.env.NODE_ENV !== 'production') {
     logger.add(new winston.transports.Console({
-      format: winston.format.simple(),
-    }));
+      format: winston.format.combine(
+        winston.format.colorize({ all: true }),
+        winston.format.simple()
+    )}));
 }
 
 console.log('Logger initialized successfully!');
 
-function log(content){
-    logger.info('hello', { message: content });
+function info(content){
+    logger.info(content);
+}
+
+function error(content){
+    logger.error(content);
 }
 
 module.exports = {
-    logMessage: log
+    info: info,
+    error: error
 };

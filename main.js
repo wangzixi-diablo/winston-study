@@ -7,7 +7,8 @@ var winstonTest = require("./winstonTest");
 
 app.get('/', function(_req, res){
    res.send("Hello world");
-   winstonTest.logMessage('234');
+   winstonTest.info('I am info');
+   winstonTest.error('I am error');
 });
 
 app.listen(port, function(){
