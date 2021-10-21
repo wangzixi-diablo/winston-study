@@ -1,0 +1,28 @@
+{
+  "name": "winston-study",
+  "version": "0.0.1",
+  "description": "For Spartacus SSR study",
+  "engines": {
+    "node": "8.14.1"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wangzixi-diablo/winston-study"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "license": "MIT"
+}
