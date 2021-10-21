@@ -1,13 +1,13 @@
 // @ts-nocheck
-var path = require('path'), express = require('express');
-
+var express = require('express');
 var app = express();
-var url = require("url");
 var DEFAULTPORT = 3003;
 var port = process.env.PORT || DEFAULTPORT;
+var winstonTest = require("./winstonTest");
 
-app.get('/', function(req, res){
+app.get('/', function(_req, res){
    res.send("Hello world");
+   winstonTest.logMessage('234');
 });
 
 app.listen(port, function(){
