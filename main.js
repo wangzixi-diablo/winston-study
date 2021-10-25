@@ -36,27 +36,29 @@ function switchOnExpressWinston(){
 // switchOnExpressWinston();
 
 function testviaNormalLog(){
-  console.time('normal');
+  //console.time('normal');
+  var start = new Date();
   for( var i = 0; i < NUMBER; i++){
-    console.log("Info: " , i);
+    console.log(i);
   }
-  console.timeEnd('normal');
+  //console.timeEnd('normal');
+  return new Date() - start;
 }
 
 function testviaWinstonLog(){
-  console.time('winston');
+  var start = new Date();
+  //console.time('winston');
   for( var i = 0; i < NUMBER; i++){
     winstonTest.info(i);
   }
-  console.timeEnd('winston');
+  //console.timeEnd('winston');
+  return new Date() - start;
 }
 
 app.get('/', function(_req, res){
-   res.send("Hello world");
-   
-   testviaWinstonLog();
-   testviaNormalLog();
-   
+   const winstonTime = testviaWinstonLog();
+   const normalTime = testviaNormalLog();
+   res.send(` test number: ${NUMBER}, gitnormal: ${normalTime}, winston: ${winstonTime}`);
 });
 
 app.listen(port, function(){
